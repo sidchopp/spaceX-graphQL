@@ -36,8 +36,6 @@ const Launches = () => {
   }
   return (
     <div>
-      <h1>Space X Launches</h1>
-      {/* <ul>{showPastLaunches()}</ul> */}
       <Container sx={{ py: 8 }} maxWidth="xl">
         <Grid container spacing={4}>
           {data.launchesPast.map((launch) => (

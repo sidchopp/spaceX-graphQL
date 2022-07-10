@@ -1,16 +1,26 @@
 import { useGlobalContext } from "./components/Context";
 import { ApolloProvider } from "@apollo/client";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 //Components
 import Launches from "./components/Launches";
+import Header from "./components/Header";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   const { client } = useGlobalContext();
   return (
-    // Similar to React's Context.Provider, ApolloProvider wraps your React app and places Apollo Client on the context, enabling you to access it from anywhere in your component tree.
-    <ApolloProvider client={client}>
-      <Launches />
-    </ApolloProvider>
+    <ThemeProvider theme={darkTheme}>
+      <ApolloProvider client={client}>
+        <Header />
+        <Launches />
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
