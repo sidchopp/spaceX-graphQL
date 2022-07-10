@@ -12,7 +12,6 @@ const GET_LAUNCHES = gql`
         site_name_long
       }
       launch_date_local
-      launch_year
     }
   }
 `;

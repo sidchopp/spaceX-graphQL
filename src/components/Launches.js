@@ -2,6 +2,7 @@ import { useGlobalContext } from "./Context";
 import { useQuery } from "@apollo/client";
 import { GET_LAUNCHES } from "../queries/queries";
 import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -57,16 +58,18 @@ const Launches = () => {
                   image="https://source.unsplash.com/random"
                   alt="random"
                 /> */}
+                <CardHeader
+                  title={
+                    <Typography gutterBottom variant="h7" component="h2">
+                      {launch.mission_name}
+                    </Typography>
+                  }
+                  subheader={` ${launch.launch_date_local} `}
+                />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {launch.mission_name}
-                  </Typography>
-                  <Typography>
-                    Launched from: {launch.launch_site.site_name_long}
-                  </Typography>
-                  <Typography>Launched in: {launch.launch_year}</Typography>
-                  <Typography>
-                    Launched at: {launch.launch_date_local}
+                  <Typography gutterBottom variant="h7" component="h4">
+                    Launched from:
+                    <Typography>{launch.launch_site.site_name_long}</Typography>
                   </Typography>
                 </CardContent>
                 <CardActions>
