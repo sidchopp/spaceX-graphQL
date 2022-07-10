@@ -1,4 +1,5 @@
 import { useGlobalContext } from "./components/Context";
+import Launches from "./components/Launches";
 import Loader from "./components/Loader";
 
 function App() {
@@ -9,16 +10,7 @@ function App() {
     return <Loader />;
   }
 
-  return (
-    <div>
-      <h1>Space X Launches</h1>
-      <ul>
-        {launches.map((launch) => {
-          return <li key={launch.id}>{launch.mission_name}</li>;
-        })}
-      </ul>
-    </div>
-  );
+  return <Launches />;
 }
 
 export default App;
