@@ -10,6 +10,9 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { SiSpacex } from "react-icons/si";
+import { GiSpaceShuttle } from "react-icons/gi";
+import { IoMdRocket } from "react-icons/io";
 
 //Components
 import Loader from "./Loader";
@@ -58,16 +61,28 @@ const Launches = () => {
                 /> */}
                 <CardHeader
                   title={
-                    <Typography gutterBottom variant="h7" component="h2">
-                      {launch.mission_name}
+                    <Typography variant="h7" component="h2">
+                      <SiSpacex /> {launch.mission_name}
                     </Typography>
                   }
-                  subheader={` ${launch.launch_date_local} `}
+                  subheader={
+                    <Typography color="text.secondary" variant="body2">
+                      {launch.launch_date_local.slice(0, 10)}
+                    </Typography>
+                  }
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h7" component="h4">
-                    Launched from:
-                    <Typography>{launch.launch_site.site_name_long}</Typography>
+                  <Typography color="text.secondary">
+                    <span className="icon">
+                      <GiSpaceShuttle />
+                    </span>
+                    <span>{launch.launch_site.site_name_long}</span>
+                  </Typography>
+                  <Typography color="text.secondary">
+                    <span className="icon">
+                      <IoMdRocket />
+                    </span>
+                    <span>{launch.rocket.rocket_name}</span>
                   </Typography>
                 </CardContent>
                 <CardActions>
