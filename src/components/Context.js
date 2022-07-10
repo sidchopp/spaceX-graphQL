@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -6,26 +7,16 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [launches, setLaunches] = useState({});
 
-  //   const fetchData = async function () {
-  //     setLoading(true);
-  //     try {
-  //       const response = await fetch("https://api.spacex.land/graphql/", {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({ query: LAUNCHES_QUERY }),
-  //       });
-  //       const DATA = await response.json();
-  //       setLoading(false);
-  //       setLaunches(DATA.data.launchesPast);
-  //     } catch (error) {}
-  //   };
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, []);
+  //Initialize Apollo Client
+  const client = new ApolloClient({
+    uri: "https://api.spacex.land/graphql/", // uri specifies the URL of our GraphQL server
+    cache: new InMemoryCache(), //cache is an instance of InMemoryCache, which Apollo Client uses to cache query results after fetching them
+  });
 
   return (
     <AppContext.Provider
       value={{
+        client,
         loading,
         setLoading,
         launches,
