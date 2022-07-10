@@ -1,16 +1,25 @@
 import { useGlobalContext } from "./components/Context";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from "@apollo/client";
+
+//Components
 import Launches from "./components/Launches";
-import Loader from "./components/Loader";
+
+const client = new ApolloClient({
+  uri: "https://api.spacex.land/graphql/",
+  cache: new InMemoryCache(),
+});
 
 function App() {
-  const { loading, launches } = useGlobalContext();
-  // console.log(launches);
-  // if data is not fetched,show loader
-  if (loading) {
-    return <Loader />;
-  }
-
-  return <Launches />;
+  return (
+    <ApolloProvider client={client}>
+      <Launches />
+    </ApolloProvider>
+  );
 }
 
 export default App;
