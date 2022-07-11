@@ -13,6 +13,9 @@ import Button from "@mui/material/Button";
 import { SiSpacex } from "react-icons/si";
 import { GiSpaceShuttle } from "react-icons/gi";
 import { IoMdRocket } from "react-icons/io";
+import { FaWikipediaW } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
+import IconButton from "@mui/material/IconButton";
 
 //Components
 import Loader from "./Loader";
@@ -56,7 +59,7 @@ const Launches = () => {
                     // 16:9
                     pt: "56.25%",
                   }}
-                  image="https://source.unsplash.com/random"
+                  image="https://images.unsplash.com/photo-1628126235206-5260b9ea6441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                   alt="random"
                 /> */}
                 <CardHeader
@@ -67,27 +70,45 @@ const Launches = () => {
                   }
                   subheader={
                     <Typography color="text.secondary" variant="body2">
-                      {launch.launch_date_local.slice(0, 10)}
+                      Year: {launch.launch_year}
                     </Typography>
                   }
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography color="text.secondary">
+                  {/* <Typography color="text.secondary">
                     <span className="icon">
                       <GiSpaceShuttle />
                     </span>
-                    <span>{launch.launch_site.site_name_long}</span>
-                  </Typography>
+                    <span>
+                      Launch Station: {launch.launch_site.site_name_long}
+                    </span>
+                  </Typography> */}
                   <Typography color="text.secondary">
                     <span className="icon">
                       <IoMdRocket />
                     </span>
-                    <span>{launch.rocket.rocket_name}</span>
+                    <span> {launch.rocket.rocket_name}</span>
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">View</Button>
-                  <Button size="small">Edit</Button>
+                  <IconButton
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    href={launch.links.wikipedia}
+                    target="_blank"
+                  >
+                    <FaWikipediaW />
+                  </IconButton>
+                  <IconButton
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    href={launch.links.video_link}
+                    target="_blank"
+                  >
+                    <IoLogoYoutube />
+                  </IconButton>
                 </CardActions>
               </Card>
             </Grid>

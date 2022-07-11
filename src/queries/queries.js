@@ -5,16 +5,17 @@ import { gql } from "@apollo/client";
 //To get past launches
 const GET_LAUNCHES = gql`
   query GetLaunches {
-    launchesPast {
+    launchesPast(limit: 10) {
       mission_name
       id
-      launch_site {
-        site_name_long
+      launch_year
+      links {
+        article_link
+        video_link
+        wikipedia
       }
-      launch_date_local
       rocket {
         rocket_name
-        rocket_type
       }
     }
   }
