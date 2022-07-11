@@ -8,25 +8,17 @@ import LaunchesCard from "./LaunchesCard";
 
 const Launches = () => {
   const { loading, error, data } = useQuery(GET_LAUNCHES);
-  console.log(data);
+  // console.log(data);
   if (error) return <p>`Error :( ${error.message}`</p>;
-
-  //To show last  launches
-  const showPastLaunches = () => {
-    // if data is not fetched,show loader
-    if (loading) {
-      return <Loader />;
-    } else {
-      return data.launchesPast.map((launch) => {
-        return <li key={launch.id}>{launch.mission_name}</li>;
-      });
-    }
-  };
-
   if (loading) {
     return <Loader />;
   }
-  return <LaunchesCard />;
+  return (
+    <div>
+      <h1>Past Launches</h1>
+      <LaunchesCard />
+    </div>
+  );
 };
 
 export default Launches;

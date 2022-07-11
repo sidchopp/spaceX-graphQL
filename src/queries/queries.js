@@ -21,4 +21,26 @@ const GET_LAUNCHES = gql`
   }
 `;
 
-export { GET_LAUNCHES };
+// To get Rockets
+const GET_ROCKETS = gql`
+  query GetRockets {
+    rockets {
+      id
+      height {
+        feet
+      }
+      country
+      description
+      diameter {
+        feet
+      }
+      mass {
+        kg
+      }
+      name
+      wikipedia
+      cost_per_launch
+    }
+  }
+`;
+export { GET_LAUNCHES, GET_ROCKETS };
