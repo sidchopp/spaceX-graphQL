@@ -8,7 +8,7 @@ import RocketsCard from "./RocketsCard";
 
 const Rockets = () => {
   const { loading, error, data } = useQuery(GET_ROCKETS);
-  console.log(data);
+  // console.log(data);
   if (error) return <p>`Error :( ${error.message}`</p>;
   if (loading) {
     return <Loader />;

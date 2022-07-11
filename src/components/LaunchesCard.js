@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LAUNCHES } from "../queries/queries";
 import Card from "@mui/material/Card";
@@ -15,14 +16,51 @@ import { IoMdRocket } from "react-icons/io";
 import { FaWikipediaW } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
+import { BsArrowLeftSquareFill } from "react-icons/bs";
+import { BsArrowRightSquareFill } from "react-icons/bs";
 
+import paginate from "../utils.js";
 const LaunchesCard = () => {
   const { loading, error, data } = useQuery(GET_LAUNCHES);
+  const [launchData, setLaunchData] = useState(paginate(data));
+  const [page, setPage] = useState(0);
+  const [launches, setLaunches] = useState([]);
+  // console.log(launchData[0]);
+
+  useEffect(() => {
+    if (!loading) return setLaunches(launchData[page]);
+  }, [loading, page]);
+
+  // console.log(launches);
+
+  const handlePage = (index) => {
+    setPage(index);
+  };
+
+  const nextPage = () => {
+    setPage((oldPage) => {
+      let nextPage = oldPage + 1;
+      if (nextPage > launchData.length - 1) {
+        nextPage = 0;
+      }
+      return nextPage;
+    });
+  };
+  const prevPage = () => {
+    setPage((oldPage) => {
+      let prevPage = oldPage - 1;
+      if (prevPage < 0) {
+        prevPage = launchData.length - 1;
+      }
+      return prevPage;
+    });
+  };
+
   return (
     <div>
       <Container sx={{ py: 8 }} maxWidth="xl">
         <Grid container spacing={4}>
-          {data.launchesPast.map((launch) => (
+          {launches.map((launch) => (
             <Grid item key={launch.id} xs={12} sm={6} md={3}>
               <Card
                 sx={{
@@ -93,6 +131,39 @@ const LaunchesCard = () => {
           ))}
         </Grid>
       </Container>
+      <div className="btn-container ">
+        <IconButton
+          size="medium"
+          variant="contained"
+          color="primary"
+          onClick={prevPage}
+          className="prev-btn"
+        >
+          <BsArrowLeftSquareFill />
+        </IconButton>
+        {launchData.map((item, index) => {
+          return (
+            <button
+              key={index}
+              className={` page-btn font ${
+                index === page ? "active-btn" : null
+              }`}
+              onClick={() => handlePage(index)}
+            >
+              {index + 1}
+            </button>
+          );
+        })}
+        <IconButton
+          size="lmedium"
+          variant="contained"
+          color="primary"
+          onClick={nextPage}
+          className="next-btn"
+        >
+          <BsArrowRightSquareFill />
+        </IconButton>
+      </div>
     </div>
   );
 };
