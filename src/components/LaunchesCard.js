@@ -20,8 +20,8 @@ import { BsArrowLeftSquareFill } from "react-icons/bs";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 
 import paginate from "../utils.js";
-const LaunchesCard = () => {
-  const { loading, error, data } = useQuery(GET_LAUNCHES);
+const LaunchesCard = ({ data, loading }) => {
+  // const { loading, error, data } = useQuery(GET_LAUNCHES);
   const [launchData, setLaunchData] = useState(paginate(data));
   const [page, setPage] = useState(0);
   const [launches, setLaunches] = useState([]);
