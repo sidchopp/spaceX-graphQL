@@ -10,7 +10,6 @@ const GET_COMPANY = gql`
       employees
       founder
       headquarters {
-        city
         state
       }
       name

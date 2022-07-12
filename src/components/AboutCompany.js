@@ -58,13 +58,13 @@ const Launches = () => {
                 <Typography
                   variant="h4"
                   component="div"
-                  align="center"
+                  align="left"
                   color="text.primary"
                 >
                   {data.company.ceo}
                 </Typography>
                 <Typography
-                  align="center"
+                  align="left"
                   variant="caption"
                   display="block"
                   color="text.secondary"
@@ -77,19 +77,18 @@ const Launches = () => {
                 <Typography
                   variant="h4"
                   component="div"
-                  align="center"
+                  align="right"
                   color="text.primary"
                 >
-                  {data.company.headquarters.city},
                   {data.company.headquarters.state}
                 </Typography>
                 <Typography
-                  align="center"
+                  align="right"
                   variant="caption"
                   display="block"
                   color="text.secondary"
                 >
-                  <i> Headquarters </i>
+                  <i> Headquarter </i>
                 </Typography>
               </Grid>
 
@@ -97,13 +96,13 @@ const Launches = () => {
                 <Typography
                   variant="h4"
                   component="div"
-                  align="center"
+                  align="left"
                   color="text.primary"
                 >
-                  Over {data.company.employees}
+                  {data.company.employees} +
                 </Typography>
                 <Typography
-                  align="center"
+                  align="left"
                   variant="caption"
                   display="block"
                   color="text.secondary"
@@ -116,22 +115,22 @@ const Launches = () => {
                 <Typography
                   variant="h4"
                   component="div"
-                  align="center"
+                  align="right"
                   color="text.primary"
                 >
                   <b>
                     <a href={data.company.links.website} target="_blank">
-                      spacex.com
+                      spacex
                     </a>
                   </b>
                 </Typography>
                 <Typography
-                  align="center"
+                  align="right"
                   variant="caption"
                   display="block"
                   color="text.secondary"
                 >
-                  <i> Company's Official website </i>
+                  <i> Official website </i>
                 </Typography>
               </Grid>
             </Grid>
