@@ -19,6 +19,12 @@
   padding: 5px;
   font-size: 25px;
 }
+.spacex-icon {
+  font-size: 80px;
+  left: 0;
+  bottom: 0;
+  position: relative;
+}
 .btn-container {
   display: flex;
   justify-content: center;

@@ -2,6 +2,26 @@ import { gql } from "@apollo/client";
 
 //To define the query we want to execute, we wrap it in the gql template literal
 
+//To get company details
+const GET_COMPANY = gql`
+  query GetCompany {
+    company {
+      ceo
+      employees
+      founder
+      headquarters {
+        city
+        state
+      }
+      name
+      summary
+      valuation
+      links {
+        website
+      }
+    }
+  }
+`;
 //To get past launches
 const GET_LAUNCHES = gql`
   query GetLaunches {
@@ -47,4 +67,4 @@ const GET_ROCKETS = gql`
     }
   }
 `;
-export { GET_LAUNCHES, GET_ROCKETS };
+export { GET_COMPANY, GET_LAUNCHES, GET_ROCKETS };
