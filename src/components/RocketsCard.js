@@ -42,35 +42,55 @@ const RocketsCard = () => {
                 /> */}
                 <CardHeader
                   title={
-                    <Typography variant="h7" component="h2">
+                    <Typography variant="h5" component="div">
                       <SiSpacex /> {rocket.name}
                     </Typography>
                   }
                   subheader={
-                    <Typography color="text.secondary" variant="body2">
+                    <Typography
+                      color="text.secondary"
+                      variant="overline"
+                      display="block"
+                    >
                       {rocket.country}
                     </Typography>
                   }
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography color="text.secondary">
-                    <span className="icon">
-                      <IoMdRocket />
-                    </span>
-                    <span> {rocket.description}</span>
+                  <Typography
+                    Typography
+                    gutterBottom
+                    variant="caption"
+                    display="block"
+                    align="left"
+                  >
+                    <i>
+                      <Grid container spacing={1}>
+                        <Grid item xs>
+                          - Height: {rocket.height.feet} feet
+                        </Grid>
+                        <Grid item xs>
+                          - Diameter: {rocket.diameter.feet} feet
+                        </Grid>
+                      </Grid>
+                      <Grid container rowSpacing={1}>
+                        <Grid item xs>
+                          - Mass: {rocket.mass.kg} kg
+                        </Grid>
+                        <Grid item xs>
+                          - Cost/launch: ${" "}
+                          {+(rocket.cost_per_launch / 1000000).toFixed(1)} M
+                        </Grid>
+                      </Grid>
+                    </i>
                   </Typography>
-                  <Typography>
-                    <ul>
-                      <li>Height: {rocket.height.feet} feet</li>
-                      <li>Diameter: {rocket.diameter.feet} feet</li>
-                      <li>Mass: {rocket.mass.kg} kg</li>
-                      <li>Mass: {rocket.mass.kg} kg</li>
-
-                      <li>
-                        Cost per Launch: ${" "}
-                        {+(rocket.cost_per_launch / 1000000).toFixed(1)} Million
-                      </li>
-                    </ul>
+                  <Typography
+                    variant="caption"
+                    display="block"
+                    gutterBottom
+                    color="text.secondary"
+                  >
+                    <span> {rocket.description}</span>
                   </Typography>
                 </CardContent>
                 <CardActions>

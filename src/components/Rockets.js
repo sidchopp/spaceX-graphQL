@@ -11,7 +11,12 @@ const Rockets = () => {
   // console.log(data);
   if (error) return <p>`Error :( ${error.message}`</p>;
   if (loading) {
-    return <Loader />;
+    return (
+      <div>
+        <h1>List of Rockets</h1>
+        <Loader />
+      </div>
+    );
   }
   return (
     <div>
