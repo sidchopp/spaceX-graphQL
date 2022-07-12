@@ -9,6 +9,7 @@ const GET_LAUNCHES = gql`
       mission_name
       id
       launch_year
+      details
       links {
         article_link
         video_link
@@ -16,6 +17,9 @@ const GET_LAUNCHES = gql`
       }
       rocket {
         rocket_name
+      }
+      launch_site {
+        site_name
       }
     }
   }

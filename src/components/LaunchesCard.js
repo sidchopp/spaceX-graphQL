@@ -18,6 +18,7 @@ import { IoLogoYoutube } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
 import { BsArrowRightSquareFill } from "react-icons/bs";
+import { MdOutlineArticle } from "react-icons/md";
 
 import paginate from "../utils.js";
 const LaunchesCard = ({ data, loading }) => {
@@ -80,15 +81,15 @@ const LaunchesCard = ({ data, loading }) => {
                 /> */}
                 <CardHeader
                   title={
-                    <Typography variant="h7" component="h2">
+                    <Typography gutterBottom variant="h7" component="h2">
                       <SiSpacex /> {launch.mission_name}
                     </Typography>
                   }
-                  subheader={
-                    <Typography color="text.secondary" variant="body2">
-                      Year: {launch.launch_year}
-                    </Typography>
-                  }
+                  // subheader={
+                  //   <Typography color="text.secondary" variant="body2">
+                  //     {launch.launch_year}
+                  //   </Typography>
+                  // }
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   {/* <Typography color="text.secondary">
@@ -99,32 +100,88 @@ const LaunchesCard = ({ data, loading }) => {
                       Launch Station: {launch.launch_site.site_name_long}
                     </span>
                   </Typography> */}
-                  <Typography color="text.secondary">
-                    <span className="icon">
-                      <IoMdRocket />
-                    </span>
-                    <span> {launch.rocket.rocket_name}</span>
+                  <Typography
+                    gutterBottom
+                    variant="caption"
+                    display="block"
+                    align="left"
+                  >
+                    <i>
+                      <Grid container spacing={2}>
+                        <Grid item xs>
+                          - Rocket: {launch.rocket.rocket_name}
+                        </Grid>
+                        <Grid item xs>
+                          - Launched in: {launch.launch_year}
+                        </Grid>
+                      </Grid>
+                      <Grid container rowSpacing={1}>
+                        <Grid item xs>
+                          - Launch site: {launch.launch_site.site_name}
+                        </Grid>
+                      </Grid>
+                    </i>
                   </Typography>
+                  {launch.details ? (
+                    <Typography
+                      variant="caption"
+                      display="block"
+                      gutterBottom
+                      color="text.secondary"
+                    >
+                      <span> {launch.details}</span>
+                    </Typography>
+                  ) : (
+                    <Typography
+                      variant="caption"
+                      display="block"
+                      gutterBottom
+                      color="text.secondary"
+                    >
+                      Details Unavailable :(
+                    </Typography>
+                  )}
                 </CardContent>
                 <CardActions>
-                  <IconButton
-                    size="large"
-                    variant="contained"
-                    color="primary"
-                    href={launch.links.wikipedia}
-                    target="_blank"
-                  >
-                    <FaWikipediaW />
-                  </IconButton>
-                  <IconButton
-                    size="large"
-                    variant="contained"
-                    color="primary"
-                    href={launch.links.video_link}
-                    target="_blank"
-                  >
-                    <IoLogoYoutube />
-                  </IconButton>
+                  {launch.links.wikipedia ? (
+                    <IconButton
+                      size="large"
+                      variant="contained"
+                      color="primary"
+                      href={launch.links.wikipedia}
+                      target="_blank"
+                    >
+                      <FaWikipediaW />
+                    </IconButton>
+                  ) : (
+                    <></>
+                  )}
+                  {launch.links.video_link ? (
+                    <IconButton
+                      size="large"
+                      variant="contained"
+                      color="primary"
+                      href={launch.links.video_link}
+                      target="_blank"
+                    >
+                      <IoLogoYoutube />
+                    </IconButton>
+                  ) : (
+                    <></>
+                  )}
+                  {launch.links.article_link ? (
+                    <IconButton
+                      size="large"
+                      variant="contained"
+                      color="primary"
+                      href={launch.links.article_link}
+                      target="_blank"
+                    >
+                      <MdOutlineArticle />
+                    </IconButton>
+                  ) : (
+                    <></>
+                  )}
                 </CardActions>
               </Card>
             </Grid>

@@ -58,7 +58,6 @@ const RocketsCard = () => {
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography
-                    Typography
                     gutterBottom
                     variant="caption"
                     display="block"
