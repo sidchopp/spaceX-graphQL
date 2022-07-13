@@ -1,3 +1,4 @@
+import { useGlobalContext } from "./Context";
 import { useQuery } from "@apollo/client";
 import { GET_ROCKETS } from "../queries/queries";
 import Card from "@mui/material/Card";
@@ -10,9 +11,11 @@ import Typography from "@mui/material/Typography";
 import { SiSpacex } from "react-icons/si";
 import { FaWikipediaW } from "react-icons/fa";
 import IconButton from "@mui/material/IconButton";
+import { MdExpandMore, MdExpandLess } from "react-icons/md";
 
-const RocketsCard = () => {
-  const { loading, error, data } = useQuery(GET_ROCKETS);
+const RocketsCard = ({ data }) => {
+  const { showMore, setShowMore } = useGlobalContext();
+
   return (
     <div>
       <Container sx={{ py: 8 }} maxWidth="xl">
@@ -75,7 +78,17 @@ const RocketsCard = () => {
                     gutterBottom
                     color="text.secondary"
                   >
-                    <span> {rocket.description}</span>
+                    <span>
+                      {showMore
+                        ? rocket.description
+                        : `${rocket.description.substring(0, 100)}`}
+                      <IconButton
+                        className="show-button"
+                        onClick={() => setShowMore(!showMore)}
+                      >
+                        {showMore ? <MdExpandLess /> : <MdExpandMore />}
+                      </IconButton>
+                    </span>
                   </Typography>
                 </CardContent>
                 <CardActions>

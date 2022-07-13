@@ -6,7 +6,7 @@ const AppProvider = ({ children }) => {
   //States
   const [loading, setLoading] = useState(true);
   const [launches, setLaunches] = useState({});
-
+  const [showMore, setShowMore] = useState(false);
   //Initialize Apollo Client
   const client = new ApolloClient({
     uri: "https://api.spacex.land/graphql/", // uri specifies the URL of our GraphQL server
@@ -21,6 +21,8 @@ const AppProvider = ({ children }) => {
         setLoading,
         launches,
         setLaunches,
+        showMore,
+        setShowMore,
       }}
     >
       {children}

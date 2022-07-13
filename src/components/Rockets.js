@@ -20,7 +20,7 @@ const Rockets = () => {
   return (
     <div>
       <h1>List of Rockets</h1>
-      <RocketsCard />
+      <RocketsCard data={data} loading={loading} />
     </div>
   );
 };
