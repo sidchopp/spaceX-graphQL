@@ -9,6 +9,7 @@ import Container from "@mui/material/Container";
 //Components
 import Loader from "./Loader";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Launches = () => {
   const { loading, error, data } = useQuery(GET_COMPANY);
@@ -24,11 +25,14 @@ const Launches = () => {
         sx={{
           bgcolor: "background.paper",
           pt: 1,
-          pb: 8,
+          pb: 1,
         }}
       >
         <Container maxWidth="xl">
+          {/* Component import */}
           <Navbar />
+          {/* *** */}
+
           <Typography
             component="h1"
             variant="h2"
@@ -137,6 +141,9 @@ const Launches = () => {
             </Grid>
           </Container>
         </Container>
+        {/* Component import */}
+        <Footer />
+        {/* *** */}
       </Box>
     </main>
   );
