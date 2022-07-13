@@ -1,4 +1,3 @@
-import { useGlobalContext } from "./Context";
 import { useQuery } from "@apollo/client";
 import { GET_ROCKETS } from "../queries/queries";
 

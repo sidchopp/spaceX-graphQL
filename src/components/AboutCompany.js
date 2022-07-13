@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_COMPANY } from "../queries/queries";
 import { SiSpacex } from "react-icons/si";
-
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -9,6 +8,7 @@ import Container from "@mui/material/Container";
 
 //Components
 import Loader from "./Loader";
+import Navbar from "./Navbar";
 
 const Launches = () => {
   const { loading, error, data } = useQuery(GET_COMPANY);
@@ -23,11 +23,12 @@ const Launches = () => {
       <Box
         sx={{
           bgcolor: "background.paper",
-          pt: 8,
-          pb: 6,
+          pt: 1,
+          pb: 8,
         }}
       >
         <Container maxWidth="xl">
+          <Navbar />
           <Typography
             component="h1"
             variant="h2"
@@ -120,7 +121,10 @@ const Launches = () => {
                 >
                   <b>
                     <a href={data.company.links.website} target="_blank">
-                      spacex
+                      Space
+                      <span>
+                        <SiSpacex />
+                      </span>
                     </a>
                   </b>
                 </Typography>
