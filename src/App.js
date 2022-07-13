@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Launches from "./components/Launches";
 import Rockets from "./components/Rockets";
 import AboutCompany from "./components/AboutCompany";
+import Navbar from "./components/Navbar";
 
 const darkTheme = createTheme({
   palette: {
@@ -18,6 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <ApolloProvider client={client}>
+        <Navbar />
         <AboutCompany />
         <Rockets />
         <Launches />
