@@ -51,9 +51,7 @@
   text-align: center;
   color: var(--darkColor);
 }
-.show-button {
-  cursor: pointer;
-}
+
 .footer {
   margin-top: 50px;
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useGlobalContext } from "./Context";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";
@@ -10,12 +11,15 @@ import { SiSpacex } from "react-icons/si";
 import { FaWikipediaW } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
+import { Button } from "@mui/material";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 import { MdOutlineArticle } from "react-icons/md";
+import { MdExpandMore, MdExpandLess } from "react-icons/md";
 
 import paginate from "../utils.js";
 const LaunchesCard = ({ data, loading }) => {
+  const { showMore, setShowMore } = useGlobalContext();
   // const { loading, error, data } = useQuery(GET_LAUNCHES);
   const [launchData, setLaunchData] = useState(paginate(data));
   const [page, setPage] = useState(0);
@@ -101,7 +105,18 @@ const LaunchesCard = ({ data, loading }) => {
                       gutterBottom
                       color="text.secondary"
                     >
-                      <span> {launch.details}</span>
+                      <span>
+                        {/* {launch.details} */}
+                        {showMore
+                          ? launch.details
+                          : `${launch.details.substring(0, 150)}...`}
+                        <Button
+                          size="small"
+                          onClick={() => setShowMore(!showMore)}
+                        >
+                          {showMore ? "Read less" : "Read more"}
+                        </Button>
+                      </span>
                     </Typography>
                   ) : (
                     <Typography
