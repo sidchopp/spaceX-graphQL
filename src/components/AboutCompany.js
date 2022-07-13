@@ -17,7 +17,7 @@ const Launches = () => {
   if (loading) {
     return <Loader />;
   }
-  console.log(data);
+  // console.log(data);
   return (
     <main>
       <Box
@@ -121,10 +121,7 @@ const Launches = () => {
                 >
                   <b>
                     <a href={data.company.links.website} target="_blank">
-                      Space
-                      <span>
-                        <SiSpacex />
-                      </span>
+                      SpaceX
                     </a>
                   </b>
                 </Typography>
