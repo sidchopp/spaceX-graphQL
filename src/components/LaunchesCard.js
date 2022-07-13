@@ -36,24 +36,24 @@ const LaunchesCard = ({ data, loading }) => {
     setPage(index);
   };
 
-  const nextPage = () => {
-    setPage((oldPage) => {
-      let nextPage = oldPage + 1;
-      if (nextPage > launchData.length - 1) {
-        nextPage = 0;
-      }
-      return nextPage;
-    });
-  };
-  const prevPage = () => {
-    setPage((oldPage) => {
-      let prevPage = oldPage - 1;
-      if (prevPage < 0) {
-        prevPage = launchData.length - 1;
-      }
-      return prevPage;
-    });
-  };
+  // const nextPage = () => {
+  //   setPage((oldPage) => {
+  //     let nextPage = oldPage + 1;
+  //     if (nextPage > launchData.length - 1) {
+  //       nextPage = 0;
+  //     }
+  //     return nextPage;
+  //   });
+  // };
+  // const prevPage = () => {
+  //   setPage((oldPage) => {
+  //     let prevPage = oldPage - 1;
+  //     if (prevPage < 0) {
+  //       prevPage = launchData.length - 1;
+  //     }
+  //     return prevPage;
+  //   });
+  // };
 
   return (
     <div>
@@ -176,7 +176,7 @@ const LaunchesCard = ({ data, loading }) => {
         </Grid>
       </Container>
       <div className="btn-container ">
-        <IconButton
+        {/* <IconButton
           size="medium"
           variant="contained"
           color="primary"
@@ -184,7 +184,8 @@ const LaunchesCard = ({ data, loading }) => {
           className="prev-btn"
         >
           <BsArrowLeftSquareFill />
-        </IconButton>
+        </IconButton> */}
+
         {launchData.map((item, index) => {
           return (
             <button
@@ -198,7 +199,8 @@ const LaunchesCard = ({ data, loading }) => {
             </button>
           );
         })}
-        <IconButton
+
+        {/* <IconButton
           size="lmedium"
           variant="contained"
           color="primary"
@@ -206,7 +208,7 @@ const LaunchesCard = ({ data, loading }) => {
           className="next-btn"
         >
           <BsArrowRightSquareFill />
-        </IconButton>
+        </IconButton> */}
       </div>
     </div>
   );
