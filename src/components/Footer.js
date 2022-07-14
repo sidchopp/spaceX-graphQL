@@ -13,7 +13,7 @@ function Footer() {
           align="center"
           component="p"
           gutterBottom
-          color="primary"
+          color="text.secondary"
         >
           <span className="main-font">
             {" "}

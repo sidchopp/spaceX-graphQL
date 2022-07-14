@@ -17,6 +17,10 @@
   --mainFont: "Expletus Sans", cursive;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 .main-font {
   font-family: var(--mainFont);
 }
