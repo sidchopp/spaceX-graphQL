@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 function Footer() {
   return (
     <div className="footer">
-      <Container maxWidth="md" component="footer">
+      <Container maxWidth="md">
         <Typography
           variant="subtitle1"
           align="center"
@@ -15,13 +15,16 @@ function Footer() {
           gutterBottom
           color="primary"
         >
-          Made with ❤️ and{" "}
-          <Link href="https://api.spacex.land/graphql/" target="_blank">
-            SpaceX GraphQL API
-          </Link>
+          <span className="main-font">
+            {" "}
+            Made with ❤️ &{" "}
+            <Link href="https://api.spacex.land/graphql/" target="_blank">
+              SpaceX GraphQL API
+            </Link>
+          </span>
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
-          <span className="font">
+          <span className="main-font">
             {" "}
             {"Copyright © "}
             {new Date().getFullYear()}

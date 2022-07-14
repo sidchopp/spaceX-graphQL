@@ -23,13 +23,13 @@ const Launches = () => {
     <main>
       <Box
         sx={{
-          bgcolor: "background.paper",
+          // bgcolor: "background.paper",
           pt: 1,
           pb: 1,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundImage: `url(https://images.unsplash.com/photo-1615627121117-e3278bc8b1db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)`,
+          // backgroundImage: `url(https://images.unsplash.com/photo-1615627121117-e3278bc8b1db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)`,
         }}
       >
         <Container maxWidth="xl">
