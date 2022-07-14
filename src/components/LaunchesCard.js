@@ -71,7 +71,8 @@ const LaunchesCard = ({ data, loading }) => {
                 <CardHeader
                   title={
                     <Typography gutterBottom variant="h7" component="h2">
-                      <SiSpacex /> {launch.mission_name}
+                      <SiSpacex />
+                      <span className="main-font">{launch.mission_name}</span>
                     </Typography>
                   }
                 />
@@ -82,21 +83,23 @@ const LaunchesCard = ({ data, loading }) => {
                     display="block"
                     align="left"
                   >
-                    <i>
-                      <Grid container spacing={2}>
-                        <Grid item xs>
-                          - Rocket: {launch.rocket.rocket_name}
+                    <span className="main-font">
+                      <i>
+                        <Grid container spacing={2}>
+                          <Grid item xs>
+                            - Rocket: {launch.rocket.rocket_name}
+                          </Grid>
+                          <Grid item xs>
+                            - Launched in: {launch.launch_year}
+                          </Grid>
                         </Grid>
-                        <Grid item xs>
-                          - Launched in: {launch.launch_year}
+                        <Grid container rowSpacing={1}>
+                          <Grid item xs>
+                            - Launch site: {launch.launch_site.site_name}
+                          </Grid>
                         </Grid>
-                      </Grid>
-                      <Grid container rowSpacing={1}>
-                        <Grid item xs>
-                          - Launch site: {launch.launch_site.site_name}
-                        </Grid>
-                      </Grid>
-                    </i>
+                      </i>
+                    </span>
                   </Typography>
                   {launch.details ? (
                     <Typography
@@ -105,7 +108,7 @@ const LaunchesCard = ({ data, loading }) => {
                       gutterBottom
                       color="text.secondary"
                     >
-                      <span>
+                      <span className="main-font">
                         {/* {launch.details} */}
                         {showMore
                           ? launch.details
@@ -114,7 +117,9 @@ const LaunchesCard = ({ data, loading }) => {
                           size="small"
                           onClick={() => setShowMore(!showMore)}
                         >
-                          {showMore ? "Read less" : "Read more"}
+                          <span className="main-font">
+                            {showMore ? "Read less" : "Read more"}
+                          </span>
                         </Button>
                       </span>
                     </Typography>
@@ -125,7 +130,7 @@ const LaunchesCard = ({ data, loading }) => {
                       gutterBottom
                       color="text.secondary"
                     >
-                      Details Unavailable :(
+                      <span className="main-font"> Details Unavailable :(</span>
                     </Typography>
                   )}
                 </CardContent>
