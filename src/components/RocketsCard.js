@@ -30,7 +30,8 @@ const RocketsCard = ({ data }) => {
                 <CardHeader
                   title={
                     <Typography variant="h5" component="div">
-                      <SiSpacex /> {rocket.name}
+                      <SiSpacex />
+                      <span className="main-font">{rocket.name}</span>
                     </Typography>
                   }
                   subheader={
@@ -39,7 +40,7 @@ const RocketsCard = ({ data }) => {
                       variant="overline"
                       display="block"
                     >
-                      {rocket.country}
+                      <span className="main-font"> {rocket.country}</span>
                     </Typography>
                   }
                 />
@@ -50,25 +51,27 @@ const RocketsCard = ({ data }) => {
                     display="block"
                     align="left"
                   >
-                    <i>
-                      <Grid container spacing={1}>
-                        <Grid item xs>
-                          - Height: {rocket.height.feet} feet
+                    <span className="main-font">
+                      <i>
+                        <Grid container spacing={1}>
+                          <Grid item xs>
+                            - Height: {rocket.height.feet} feet
+                          </Grid>
+                          <Grid item xs>
+                            - Diameter: {rocket.diameter.feet} feet
+                          </Grid>
                         </Grid>
-                        <Grid item xs>
-                          - Diameter: {rocket.diameter.feet} feet
+                        <Grid container rowSpacing={1}>
+                          <Grid item xs>
+                            - Mass: {rocket.mass.kg} kg
+                          </Grid>
+                          <Grid item xs>
+                            - Cost/launch: ${" "}
+                            {+(rocket.cost_per_launch / 1000000).toFixed(1)} M
+                          </Grid>
                         </Grid>
-                      </Grid>
-                      <Grid container rowSpacing={1}>
-                        <Grid item xs>
-                          - Mass: {rocket.mass.kg} kg
-                        </Grid>
-                        <Grid item xs>
-                          - Cost/launch: ${" "}
-                          {+(rocket.cost_per_launch / 1000000).toFixed(1)} M
-                        </Grid>
-                      </Grid>
-                    </i>
+                      </i>
+                    </span>
                   </Typography>
                   <Typography
                     variant="caption"
@@ -76,7 +79,7 @@ const RocketsCard = ({ data }) => {
                     gutterBottom
                     color="text.secondary"
                   >
-                    <span>
+                    <span className="main-font">
                       {showMore
                         ? rocket.description
                         : `${rocket.description.substring(0, 100)}...`}
@@ -84,7 +87,10 @@ const RocketsCard = ({ data }) => {
                         size="small"
                         onClick={() => setShowMore(!showMore)}
                       >
-                        {showMore ? "Read less" : "Read more"}
+                        <span className="main-font">
+                          {" "}
+                          {showMore ? "Read less" : "Read more"}
+                        </span>
                       </Button>
                     </span>
                   </Typography>

@@ -26,14 +26,14 @@ const Rockets = () => {
       <Grid container spacing={1}>
         <Grid item xs>
           <Typography component="h1" variant="h5" align="left">
-            List of Rockets
+            <span className="main-font"> List of Rockets</span>
           </Typography>
         </Grid>
         <Grid item xs>
           <Typography component="h1" variant="h5" align="right">
             <Link to="/">
               <Button size="small" variant="contained">
-                Back
+                <span className="main-font"> Back</span>
               </Button>
             </Link>
           </Typography>

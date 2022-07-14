@@ -18,25 +18,23 @@ const Launches = () => {
   }
   return (
     <div>
-      <div>
-        <Grid container spacing={1}>
-          <Grid item xs>
-            <Typography component="h1" variant="h5" align="left">
-              Past Launches
-            </Typography>
-          </Grid>
-          <Grid item xs>
-            <Typography component="h1" variant="h5" align="right">
-              <Link to="/">
-                <Button size="small" variant="contained">
-                  Back
-                </Button>
-              </Link>
-            </Typography>
-          </Grid>
+      <Grid container spacing={1}>
+        <Grid item xs>
+          <Typography component="h1" variant="h5" align="left">
+            Past Launches
+          </Typography>
         </Grid>
-        <LaunchesCard data={data} loading={loading} />
-      </div>
+        <Grid item xs>
+          <Typography component="h1" variant="h5" align="right">
+            <Link to="/">
+              <Button size="small" variant="contained">
+                Back
+              </Button>
+            </Link>
+          </Typography>
+        </Grid>
+      </Grid>
+      <LaunchesCard data={data} loading={loading} />
     </div>
   );
 };
