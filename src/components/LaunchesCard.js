@@ -61,121 +61,127 @@ const LaunchesCard = ({ data, loading }) => {
         <Grid container spacing={4}>
           {launches.map((launch) => (
             <Grid item key={launch.id} xs={12} sm={6} md={3}>
-              <Card
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <CardHeader
-                  title={
-                    <Typography gutterBottom variant="h7" component="h2">
-                      <SiSpacex />
-                      <span className="main-font">{launch.mission_name}</span>
-                    </Typography>
-                  }
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography
-                    gutterBottom
-                    variant="caption"
-                    display="block"
-                    align="left"
-                  >
-                    <span className="main-font">
-                      <i>
-                        <Grid container spacing={2}>
-                          <Grid item xs>
-                            - Rocket: {launch.rocket.rocket_name}
-                          </Grid>
-                          <Grid item xs>
-                            - Launched in: {launch.launch_year}
-                          </Grid>
-                        </Grid>
-                        <Grid container rowSpacing={1}>
-                          <Grid item xs>
-                            - Launch site: {launch.launch_site.site_name}
-                          </Grid>
-                        </Grid>
-                      </i>
-                    </span>
-                  </Typography>
-                  {launch.details ? (
+              <div className="card">
+                <Card
+                  variant="outlined"
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardHeader
+                    title={
+                      <Typography gutterBottom variant="h7" component="h2">
+                        <SiSpacex />
+                        <span className="main-font">{launch.mission_name}</span>
+                      </Typography>
+                    }
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
                     <Typography
+                      gutterBottom
                       variant="caption"
                       display="block"
-                      gutterBottom
-                      color="text.secondary"
+                      align="left"
                     >
                       <span className="main-font">
-                        {/* {launch.details} */}
-                        {showMore
-                          ? launch.details
-                          : `${launch.details.substring(0, 150)}...`}
-                        <Button
-                          size="small"
-                          onClick={() => setShowMore(!showMore)}
-                        >
-                          <span className="main-font">
-                            {showMore ? "Read less" : "Read more"}
-                          </span>
-                        </Button>
+                        <i>
+                          <Grid container spacing={2}>
+                            <Grid item xs>
+                              - Rocket: {launch.rocket.rocket_name}
+                            </Grid>
+                            <Grid item xs>
+                              - Launched in: {launch.launch_year}
+                            </Grid>
+                          </Grid>
+                          <Grid container rowSpacing={1}>
+                            <Grid item xs>
+                              - Launch site: {launch.launch_site.site_name}
+                            </Grid>
+                          </Grid>
+                        </i>
                       </span>
                     </Typography>
-                  ) : (
-                    <Typography
-                      variant="caption"
-                      display="block"
-                      gutterBottom
-                      color="text.secondary"
-                    >
-                      <span className="main-font"> Details Unavailable :(</span>
-                    </Typography>
-                  )}
-                </CardContent>
-                <CardActions>
-                  {launch.links.wikipedia ? (
-                    <IconButton
-                      size="large"
-                      variant="contained"
-                      color="primary"
-                      href={launch.links.wikipedia}
-                      target="_blank"
-                    >
-                      <FaWikipediaW />
-                    </IconButton>
-                  ) : (
-                    <></>
-                  )}
-                  {launch.links.video_link ? (
-                    <IconButton
-                      size="large"
-                      variant="contained"
-                      color="primary"
-                      href={launch.links.video_link}
-                      target="_blank"
-                    >
-                      <IoLogoYoutube />
-                    </IconButton>
-                  ) : (
-                    <></>
-                  )}
-                  {launch.links.article_link ? (
-                    <IconButton
-                      size="large"
-                      variant="contained"
-                      color="primary"
-                      href={launch.links.article_link}
-                      target="_blank"
-                    >
-                      <MdOutlineArticle />
-                    </IconButton>
-                  ) : (
-                    <></>
-                  )}
-                </CardActions>
-              </Card>
+                    {launch.details ? (
+                      <Typography
+                        variant="caption"
+                        display="block"
+                        gutterBottom
+                        color="text.secondary"
+                      >
+                        <span className="main-font">
+                          {/* {launch.details} */}
+                          {showMore
+                            ? launch.details
+                            : `${launch.details.substring(0, 150)}...`}
+                          <Button
+                            size="small"
+                            onClick={() => setShowMore(!showMore)}
+                          >
+                            <span className="main-font">
+                              {showMore ? "Read less" : "Read more"}
+                            </span>
+                          </Button>
+                        </span>
+                      </Typography>
+                    ) : (
+                      <Typography
+                        variant="caption"
+                        display="block"
+                        gutterBottom
+                        color="text.secondary"
+                      >
+                        <span className="main-font">
+                          {" "}
+                          Details Unavailable :(
+                        </span>
+                      </Typography>
+                    )}
+                  </CardContent>
+                  <CardActions>
+                    {launch.links.wikipedia ? (
+                      <IconButton
+                        size="large"
+                        variant="contained"
+                        color="primary"
+                        href={launch.links.wikipedia}
+                        target="_blank"
+                      >
+                        <FaWikipediaW />
+                      </IconButton>
+                    ) : (
+                      <></>
+                    )}
+                    {launch.links.video_link ? (
+                      <IconButton
+                        size="large"
+                        variant="contained"
+                        color="primary"
+                        href={launch.links.video_link}
+                        target="_blank"
+                      >
+                        <IoLogoYoutube />
+                      </IconButton>
+                    ) : (
+                      <></>
+                    )}
+                    {launch.links.article_link ? (
+                      <IconButton
+                        size="large"
+                        variant="contained"
+                        color="primary"
+                        href={launch.links.article_link}
+                        target="_blank"
+                      >
+                        <MdOutlineArticle />
+                      </IconButton>
+                    ) : (
+                      <></>
+                    )}
+                  </CardActions>
+                </Card>
+              </div>
             </Grid>
           ))}
         </Grid>
