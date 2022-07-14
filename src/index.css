@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@400;600&display=swap");
 :root {
   --lightColor: #edf6ff;
   --darkColor: #437fc7;
@@ -9,8 +10,14 @@
   --transition: 0.3s ease-in-out all;
   --bodyFont: "Merriweather", serif;
   --spacing: 0.1rem;
+
+  /* fonts */
+  --mainFont: "Expletus Sans", cursive;
 }
 
+.main-font {
+  font-family: var(--mainFont);
+}
 .header {
   text-align: center;
   padding: 10px;

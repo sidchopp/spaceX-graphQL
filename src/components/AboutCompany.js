@@ -26,6 +26,10 @@ const Launches = () => {
           bgcolor: "background.paper",
           pt: 1,
           pb: 1,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundImage: `url(https://images.unsplash.com/photo-1615627121117-e3278bc8b1db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)`,
         }}
       >
         <Container maxWidth="xl">
@@ -40,7 +44,7 @@ const Launches = () => {
             color="text.primary"
             gutterBottom
           >
-            SPACE{" "}
+            <span className="main-font">SPACE </span>
             <span className="spacex-icon">
               <SiSpacex />
             </span>
@@ -51,7 +55,7 @@ const Launches = () => {
             color="text.secondary"
             paragraph
           >
-            {data.company.summary}
+            <span className="main-font"> {data.company.summary}</span>
           </Typography>
           <Container maxWidth="md">
             <Grid
@@ -66,7 +70,7 @@ const Launches = () => {
                   align="left"
                   color="text.primary"
                 >
-                  {data.company.ceo}
+                  <span className="main-font">{data.company.ceo}</span>
                 </Typography>
                 <Typography
                   align="left"
@@ -74,7 +78,10 @@ const Launches = () => {
                   display="block"
                   color="text.secondary"
                 >
-                  <i> CEO & Founder </i>
+                  <span className="main-font">
+                    {" "}
+                    <i> CEO & Founder </i>
+                  </span>
                 </Typography>
               </Grid>
 
@@ -85,7 +92,10 @@ const Launches = () => {
                   align="right"
                   color="text.primary"
                 >
-                  {data.company.headquarters.state}
+                  <span className="main-font">
+                    {" "}
+                    {data.company.headquarters.state}
+                  </span>
                 </Typography>
                 <Typography
                   align="right"
@@ -93,7 +103,10 @@ const Launches = () => {
                   display="block"
                   color="text.secondary"
                 >
-                  <i> Headquarter </i>
+                  <span className="main-font">
+                    {" "}
+                    <i> Headquarter </i>
+                  </span>
                 </Typography>
               </Grid>
 
@@ -104,7 +117,7 @@ const Launches = () => {
                   align="left"
                   color="text.primary"
                 >
-                  {data.company.employees} +
+                  <span className="main-font"> {data.company.employees} +</span>
                 </Typography>
                 <Typography
                   align="left"
@@ -112,7 +125,10 @@ const Launches = () => {
                   display="block"
                   color="text.secondary"
                 >
-                  <i> Employees </i>
+                  <span className="main-font">
+                    {" "}
+                    <i> Employees </i>
+                  </span>
                 </Typography>
               </Grid>
 
@@ -125,7 +141,7 @@ const Launches = () => {
                 >
                   <b>
                     <a href={data.company.links.website} target="_blank">
-                      SpaceX
+                      <span className="main-font">SpaceX</span>
                     </a>
                   </b>
                 </Typography>
@@ -135,7 +151,10 @@ const Launches = () => {
                   display="block"
                   color="text.secondary"
                 >
-                  <i> Official website </i>
+                  <span className="main-font">
+                    {" "}
+                    <i> Official website </i>
+                  </span>
                 </Typography>
               </Grid>
             </Grid>

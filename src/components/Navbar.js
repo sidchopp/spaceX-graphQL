@@ -18,12 +18,12 @@ export default function Navbar() {
           >
             <Link to="/rockets">
               <Button variant="contained" color="inherit">
-                Rockets
+                <span className="main-font"> Rockets</span>
               </Button>
             </Link>
             <Link to="/launches">
               <Button variant="contained" color="inherit">
-                Launches
+                <span className="main-font"> Launches </span>
               </Button>
             </Link>
           </Stack>
