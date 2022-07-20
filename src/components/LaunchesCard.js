@@ -12,10 +12,8 @@ import { FaWikipediaW } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
-import { BsArrowLeftSquareFill } from "react-icons/bs";
-import { BsArrowRightSquareFill } from "react-icons/bs";
 import { MdOutlineArticle } from "react-icons/md";
-import { MdExpandMore, MdExpandLess } from "react-icons/md";
+
 
 import paginate from "../utils.js";
 const LaunchesCard = ({ data, loading }) => {
@@ -28,7 +26,7 @@ const LaunchesCard = ({ data, loading }) => {
 
   useEffect(() => {
     if (!loading) return setLaunches(launchData[page]);
-  }, [loading, page]);
+  }, [loading, page, launchData]);
 
   // console.log(launches);
 

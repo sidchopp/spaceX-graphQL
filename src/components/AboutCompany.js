@@ -140,7 +140,7 @@ const Launches = () => {
                   color="text.primary"
                 >
                   <b>
-                    <a href={data.company.links.website} target="_blank">
+                    <a href={data.company.links.website} target="_blank" rel="noreferrer">
                       <span className="main-font">SpaceX</span>
                     </a>
                   </b>
