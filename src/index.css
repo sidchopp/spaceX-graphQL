@@ -17,10 +17,17 @@
   --mainFont: "Expletus Sans", cursive;
 }
 
+body {
+  background-color: var(--lightColor);
+}
+
 a:link {
   text-decoration: none;
 }
 
+.navbar {
+  background-color: var(--darkColor);
+}
 .main-font {
   font-family: var(--mainFont);
 }
@@ -37,6 +44,7 @@ a:link {
   left: 0;
   bottom: 0;
   position: relative;
+  color: var(--darkColor);
 }
 .btn-container {
   display: flex;
@@ -84,7 +92,9 @@ a:link {
 .card:active {
   transform: scale(1.01) translateY(0.2rem);
 }
-
+.heading-info {
+  color: var(--darkColor);
+}
 .footer {
   margin-top: 50px;
 }

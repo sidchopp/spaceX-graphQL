@@ -14,7 +14,6 @@ import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
 import { MdOutlineArticle } from "react-icons/md";
 
-
 import paginate from "../utils.js";
 const LaunchesCard = ({ data, loading }) => {
   const { showMore, setShowMore } = useGlobalContext();

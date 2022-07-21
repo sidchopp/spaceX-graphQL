@@ -1,5 +1,4 @@
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
 
 function Footer() {
@@ -16,9 +15,9 @@ function Footer() {
           <span className="main-font">
             {" "}
             Made with ❤️ &{" "}
-            <Link href="https://api.spacex.land/graphql/" target="_blank">
-              SpaceX GraphQL API
-            </Link>
+          <a href="https://api.spacex.land/graphql/" target="_blank">
+           <span className="heading-info" > SpaceX GraphQL API </span> 
+          </a>
           </span>
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
@@ -27,9 +26,9 @@ function Footer() {
             {"Copyright © "}
             {new Date().getFullYear()}
             {"."}{" "}
-            <Link href="https://sid-projects.netlify.app/" target="_blank">
-              My Other Projects
-            </Link>
+            <a href="https://sid-projects.netlify.app/" target="_blank">
+            <span className="heading-info" >  My Other Projects</span>
+            </a>
           </span>
         </Typography>
       </Container>

@@ -55,7 +55,7 @@ const Launches = () => {
             color="text.secondary"
             paragraph
           >
-            <span className="main-font"> {data.company.summary}</span>
+            <span className="main-font "> {data.company.summary}</span>
           </Typography>
           <Container maxWidth="md">
             <Grid
@@ -70,7 +70,7 @@ const Launches = () => {
                   align="left"
                   color="text.primary"
                 >
-                  <span className="main-font">{data.company.ceo}</span>
+                  <span className="main-font heading-info">{data.company.ceo}</span>
                 </Typography>
                 <Typography
                   align="left"
@@ -92,7 +92,7 @@ const Launches = () => {
                   align="right"
                   color="text.primary"
                 >
-                  <span className="main-font">
+                  <span className="main-font heading-info">
                     {" "}
                     {data.company.headquarters.state}
                   </span>
@@ -117,7 +117,7 @@ const Launches = () => {
                   align="left"
                   color="text.primary"
                 >
-                  <span className="main-font"> {data.company.employees} +</span>
+                  <span className="main-font heading-info"> {data.company.employees}+</span>
                 </Typography>
                 <Typography
                   align="left"
@@ -141,7 +141,7 @@ const Launches = () => {
                 >
                   <b>
                     <a href={data.company.links.website} target="_blank" rel="noreferrer">
-                      <span className="main-font">SpaceX</span>
+                      <span className="main-font heading-info">SpaceX</span>
                     </a>
                   </b>
                 </Typography>
