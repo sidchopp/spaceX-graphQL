@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-//Components
 import Loader from "./Loader";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -15,28 +14,24 @@ const Launches = () => {
   const { loading, error, data } = useQuery(GET_COMPANY);
 
   if (error) return <p>`Error :( ${error.message}`</p>;
+  
   if (loading) {
     return <Loader />;
   }
-  // console.log(data);
+ 
   return (
     <main>
       <Box
         sx={{
-          // bgcolor: "background.paper",
           pt: 1,
           pb: 1,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          // backgroundImage: `url(https://images.unsplash.com/photo-1615627121117-e3278bc8b1db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)`,
         }}
       >
         <Container maxWidth="xl">
-          {/* Component import */}
           <Navbar />
-          {/* *** */}
-
           <Typography
             component="h1"
             variant="h2"
@@ -84,7 +79,6 @@ const Launches = () => {
                   </span>
                 </Typography>
               </Grid>
-
               <Grid item xs={6}>
                 <Typography
                   variant="h4"
@@ -109,7 +103,6 @@ const Launches = () => {
                   </span>
                 </Typography>
               </Grid>
-
               <Grid item xs={6}>
                 <Typography
                   variant="h4"
@@ -126,12 +119,10 @@ const Launches = () => {
                   color="text.secondary"
                 >
                   <span className="main-font">
-                    {" "}
                     <i> Employees </i>
                   </span>
                 </Typography>
               </Grid>
-
               <Grid item xs={6}>
                 <Typography
                   variant="h4"
@@ -152,7 +143,6 @@ const Launches = () => {
                   color="text.secondary"
                 >
                   <span className="main-font">
-                    {" "}
                     <i> Official website </i>
                   </span>
                 </Typography>
@@ -160,9 +150,7 @@ const Launches = () => {
             </Grid>
           </Container>
         </Container>
-        {/* Component import */}
         <Footer />
-        {/* *** */}
       </Box>
     </main>
   );

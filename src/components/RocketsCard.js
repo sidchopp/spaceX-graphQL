@@ -90,7 +90,6 @@ const RocketsCard = ({ data }) => {
                           onClick={() => setShowMore(!showMore)}
                         >
                           <span className="main-font">
-                            {" "}
                             {showMore ? "Read less" : "Read more"}
                           </span>
                         </Button>

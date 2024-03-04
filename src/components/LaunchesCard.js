@@ -172,7 +172,6 @@ const LaunchesCard = ({ data }) => {
         >
           <BsArrowLeftSquareFill />
         </IconButton>
-
         {launchData.map((item, index) => {
           return (
             <button
@@ -186,7 +185,6 @@ const LaunchesCard = ({ data }) => {
             </button>
           );
         })}
-
        <IconButton
           size="medium"
           variant="contained"
@@ -198,7 +196,6 @@ const LaunchesCard = ({ data }) => {
         </IconButton> 
       </div>
       </Container>
-    
     </div>
   );
 };

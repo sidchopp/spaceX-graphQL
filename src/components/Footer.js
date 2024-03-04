@@ -13,20 +13,18 @@ function Footer() {
           color="text.secondary"
         >
           <span className="main-font">
-            {" "}
             Made with ❤️ &{" "}
-          <a href="https://api.spacex.land/graphql/" target="_blank">
+          <a href="https://spacex-production.up.railway.app/" target="_blank" rel="noreferrer">
            <span className="heading-info" > SpaceX GraphQL API </span> 
           </a>
           </span>
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
           <span className="main-font">
-            {" "}
             {"Copyright © "}
             {new Date().getFullYear()}
             {"."}{" "}
-            <a href="https://sid-projects.netlify.app/" target="_blank">
+            <a href="https://sid-projects.netlify.app/" target="_blank" rel="noreferrer">
             <span className="heading-info" >  My Other Projects</span>
             </a>
           </span>

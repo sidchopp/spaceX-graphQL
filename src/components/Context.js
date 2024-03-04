@@ -3,14 +3,14 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  //States
+
   const [loading, setLoading] = useState(true);
   const [launches, setLaunches] = useState({});
   const [showMore, setShowMore] = useState(false);
-  //Initialize Apollo Client
+  
   const client = new ApolloClient({
-    uri: "https://spacex-production.up.railway.app/", // uri specifies the URL of our GraphQL server
-    cache: new InMemoryCache(), //cache is an instance of InMemoryCache, which Apollo Client uses to cache query results after fetching them
+    uri: "https://spacex-production.up.railway.app/", 
+    cache: new InMemoryCache(), 
   });
 
   return (
@@ -30,7 +30,6 @@ const AppProvider = ({ children }) => {
   );
 };
 
-// make sure use
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };

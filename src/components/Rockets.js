@@ -5,14 +5,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
-//Components
 import Loader from "./Loader";
 import RocketsCard from "./RocketsCard";
 
 const Rockets = () => {
   const { loading, error, data } = useQuery(GET_ROCKETS);
-  // console.log(data);
+
   if (error) return <p>`Error :( ${error.message}`</p>;
+
   if (loading) {
     return (
       <div>

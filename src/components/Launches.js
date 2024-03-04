@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
-//Components
 import Loader from "./Loader";
 import LaunchesCard from "./LaunchesCard";
 
