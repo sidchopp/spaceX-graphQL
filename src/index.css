@@ -50,6 +50,7 @@ a:link {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
 .page-btn {

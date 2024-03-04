@@ -13,44 +13,42 @@ import { IoLogoYoutube } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
 import { MdOutlineArticle } from "react-icons/md";
+import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs";
 
 import paginate from "../utils.js";
-const LaunchesCard = ({ data, loading }) => {
+
+const LaunchesCard = ({ data }) => {
   const { showMore, setShowMore } = useGlobalContext();
-  // const { loading, error, data } = useQuery(GET_LAUNCHES);
-  const [launchData, setLaunchData] = useState(paginate(data));
+  const launchData = paginate({ launchesPast: data });
   const [page, setPage] = useState(0);
   const [launches, setLaunches] = useState([]);
-  // console.log(launchData[0]);
-
+   
   useEffect(() => {
-    if (!loading) return setLaunches(launchData[page]);
-  }, [loading, page, launchData]);
-
-  // console.log(launches);
+   setLaunches(launchData[page]);
+  }, [ page]);
 
   const handlePage = (index) => {
     setPage(index);
   };
 
-  // const nextPage = () => {
-  //   setPage((oldPage) => {
-  //     let nextPage = oldPage + 1;
-  //     if (nextPage > launchData.length - 1) {
-  //       nextPage = 0;
-  //     }
-  //     return nextPage;
-  //   });
-  // };
-  // const prevPage = () => {
-  //   setPage((oldPage) => {
-  //     let prevPage = oldPage - 1;
-  //     if (prevPage < 0) {
-  //       prevPage = launchData.length - 1;
-  //     }
-  //     return prevPage;
-  //   });
-  // };
+  const nextPage = () => {
+    setPage((oldPage) => {
+      let nextPage = oldPage + 1;
+      if (nextPage > launchData.length - 1) {
+        nextPage = 0;
+      }
+      return nextPage;
+    });
+  };
+  const prevPage = () => {
+    setPage((oldPage) => {
+      let prevPage = oldPage - 1;
+      if (prevPage < 0) {
+        prevPage = launchData.length - 1;
+      }
+      return prevPage;
+    });
+  };
 
   return (
     <div>
@@ -92,15 +90,15 @@ const LaunchesCard = ({ data, loading }) => {
                               - Launched in: {launch.launch_year}
                             </Grid>
                           </Grid>
-                          <Grid container rowSpacing={1}>
+                          {launch.launch_site && <Grid container rowSpacing={1}>
                             <Grid item xs>
                               - Launch site: {launch.launch_site.site_name}
                             </Grid>
-                          </Grid>
+                          </Grid>}
                         </i>
                       </span>
                     </Typography>
-                    {launch.details ? (
+                    {launch.details && (
                       <Typography
                         variant="caption"
                         display="block"
@@ -108,7 +106,6 @@ const LaunchesCard = ({ data, loading }) => {
                         color="text.secondary"
                       >
                         <span className="main-font">
-                          {/* {launch.details} */}
                           {showMore
                             ? launch.details
                             : `${launch.details.substring(0, 150)}...`}
@@ -122,22 +119,10 @@ const LaunchesCard = ({ data, loading }) => {
                           </Button>
                         </span>
                       </Typography>
-                    ) : (
-                      <Typography
-                        variant="caption"
-                        display="block"
-                        gutterBottom
-                        color="text.secondary"
-                      >
-                        <span className="main-font">
-                          {" "}
-                          Details Unavailable :(
-                        </span>
-                      </Typography>
                     )}
                   </CardContent>
                   <CardActions>
-                    {launch.links.wikipedia ? (
+                    {launch.links.wikipedia && (
                       <IconButton
                         size="large"
                         variant="contained"
@@ -147,10 +132,8 @@ const LaunchesCard = ({ data, loading }) => {
                       >
                         <FaWikipediaW />
                       </IconButton>
-                    ) : (
-                      <></>
-                    )}
-                    {launch.links.video_link ? (
+                    ) }
+                    {launch.links.video_link && (
                       <IconButton
                         size="large"
                         variant="contained"
@@ -160,10 +143,8 @@ const LaunchesCard = ({ data, loading }) => {
                       >
                         <IoLogoYoutube />
                       </IconButton>
-                    ) : (
-                      <></>
-                    )}
-                    {launch.links.article_link ? (
+                    ) }
+                    {launch.links.article_link && (
                       <IconButton
                         size="large"
                         variant="contained"
@@ -173,18 +154,16 @@ const LaunchesCard = ({ data, loading }) => {
                       >
                         <MdOutlineArticle />
                       </IconButton>
-                    ) : (
-                      <></>
-                    )}
+                    ) }
                   </CardActions>
                 </Card>
               </div>
             </Grid>
           ))}
         </Grid>
-      </Container>
-      <div className="btn-container ">
-        {/* <IconButton
+
+        <div className="btn-container">
+        <IconButton
           size="medium"
           variant="contained"
           color="primary"
@@ -192,7 +171,7 @@ const LaunchesCard = ({ data, loading }) => {
           className="prev-btn"
         >
           <BsArrowLeftSquareFill />
-        </IconButton> */}
+        </IconButton>
 
         {launchData.map((item, index) => {
           return (
@@ -208,16 +187,18 @@ const LaunchesCard = ({ data, loading }) => {
           );
         })}
 
-        {/* <IconButton
-          size="lmedium"
+       <IconButton
+          size="medium"
           variant="contained"
           color="primary"
           onClick={nextPage}
           className="next-btn"
         >
           <BsArrowRightSquareFill />
-        </IconButton> */}
+        </IconButton> 
       </div>
+      </Container>
+    
     </div>
   );
 };

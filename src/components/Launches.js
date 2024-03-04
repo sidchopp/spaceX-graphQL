@@ -11,11 +11,13 @@ import LaunchesCard from "./LaunchesCard";
 
 const Launches = () => {
   const { loading, error, data } = useQuery(GET_LAUNCHES);
+
   if (error) return <p>`Error :( ${error.message}`</p>;
-  // console.log(data);
+
   if (loading) {
     return <Loader />;
   }
+  
   return (
     <div>
       <Grid container spacing={1}>
@@ -34,7 +36,7 @@ const Launches = () => {
           </Typography>
         </Grid>
       </Grid>
-      <LaunchesCard data={data} loading={loading} />
+     {!loading &&  <LaunchesCard data={data.launchesPast } />}
     </div>
   );
 };

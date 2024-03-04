@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [showMore, setShowMore] = useState(false);
   //Initialize Apollo Client
   const client = new ApolloClient({
-    uri: "https://api.spacex.land/graphql/", // uri specifies the URL of our GraphQL server
+    uri: "https://spacex-production.up.railway.app/", // uri specifies the URL of our GraphQL server
     cache: new InMemoryCache(), //cache is an instance of InMemoryCache, which Apollo Client uses to cache query results after fetching them
   });
 
