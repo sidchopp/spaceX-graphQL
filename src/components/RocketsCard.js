@@ -19,7 +19,7 @@ const RocketsCard = ({ data }) => {
       <Container sx={{ py: 8 }} maxWidth="xl">
         <Grid container spacing={4}>
           {data.rockets.map((rocket) => (
-            <Grid item key={rocket.id} xs={12} sm={6} md={3}>
+            <Grid item key={rocket.id} xs={12} sm={6} md={3} style={{ display: 'flex' }}>
               <div className="card">
                 <Card
                   variant="outlined"
