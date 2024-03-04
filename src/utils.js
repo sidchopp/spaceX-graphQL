@@ -14,4 +14,13 @@ const paginate = (launch) => {
 
   return newLaunches;
 };
-export default paginate;
+
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
+export  {paginate, scrollToTop};

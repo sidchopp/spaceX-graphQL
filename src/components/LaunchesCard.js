@@ -15,7 +15,7 @@ import { Button } from "@mui/material";
 import { MdOutlineArticle } from "react-icons/md";
 import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs";
 
-import paginate from "../utils.js";
+import {paginate, scrollToTop} from "../utils.js";
 
 const LaunchesCard = ({ data }) => {
   const { showMore, setShowMore } = useGlobalContext();
@@ -167,7 +167,10 @@ const LaunchesCard = ({ data }) => {
           size="medium"
           variant="contained"
           color="primary"
-          onClick={prevPage}
+          onClick={() => { 
+            prevPage(); 
+            scrollToTop();
+          }}
           className="prev-btn"
         >
           <BsArrowLeftSquareFill />
@@ -179,7 +182,10 @@ const LaunchesCard = ({ data }) => {
               className={` page-btn font ${
                 index === page ? "active-btn" : null
               }`}
-              onClick={() => handlePage(index)}
+              onClick={() => {
+                handlePage(index); 
+                scrollToTop();
+              }}
             >
               {index + 1}
             </button>
@@ -189,7 +195,10 @@ const LaunchesCard = ({ data }) => {
           size="medium"
           variant="contained"
           color="primary"
-          onClick={nextPage}
+          onClick={() => { 
+            nextPage(); 
+            scrollToTop();
+          }}
           className="next-btn"
         >
           <BsArrowRightSquareFill />
