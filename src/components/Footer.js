@@ -14,9 +14,13 @@ function Footer() {
         >
           <span className="main-font">
             Made with ❤️ &{" "}
-          <a href="https://spacex-production.up.railway.app/" target="_blank" rel="noreferrer">
-           <span className="heading-info" > SpaceX GraphQL API </span> 
-          </a>
+            <a
+              href="https://spacex-production.up.railway.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="heading-info"> SpaceX GraphQL API </span>
+            </a>
           </span>
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
@@ -24,8 +28,12 @@ function Footer() {
             {"Copyright © "}
             {new Date().getFullYear()}
             {"."}{" "}
-            <a href="https://sid-projects.netlify.app/" target="_blank" rel="noreferrer">
-            <span className="heading-info" >  My Other Projects</span>
+            <a
+              href="https://sid-chopra.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="heading-info"> My Other Projects</span>
             </a>
           </span>
         </Typography>
