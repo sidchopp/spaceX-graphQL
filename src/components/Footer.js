@@ -25,8 +25,7 @@ function Footer() {
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
           <span className="main-font">
-            {"Copyright © "}
-            {new Date().getFullYear()}
+            {"Copyright © "} 2022 -{new Date().getFullYear()}
             {"."}{" "}
             <a
               href="https://sid-chopra.netlify.app/"
