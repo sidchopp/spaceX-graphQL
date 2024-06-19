@@ -41,4 +41,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export { Footer };

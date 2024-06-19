@@ -8,17 +8,17 @@ import Container from "@mui/material/Container";
 
 import Loader from "./Loader";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { Footer } from "./Footer";
 
-const Launches = () => {
+const AboutCompany = () => {
   const { loading, error, data } = useQuery(GET_COMPANY);
 
   if (error) return <p>`Error :( ${error.message}`</p>;
-  
+
   if (loading) {
     return <Loader />;
   }
- 
+
   return (
     <main>
       <Box
@@ -65,7 +65,9 @@ const Launches = () => {
                   align="left"
                   color="text.primary"
                 >
-                  <span className="main-font heading-info">{data.company.ceo}</span>
+                  <span className="main-font heading-info">
+                    {data.company.ceo}
+                  </span>
                 </Typography>
                 <Typography
                   align="left"
@@ -110,7 +112,10 @@ const Launches = () => {
                   align="left"
                   color="text.primary"
                 >
-                  <span className="main-font heading-info"> {data.company.employees}+</span>
+                  <span className="main-font heading-info">
+                    {" "}
+                    {data.company.employees}+
+                  </span>
                 </Typography>
                 <Typography
                   align="left"
@@ -131,7 +136,11 @@ const Launches = () => {
                   color="text.primary"
                 >
                   <b>
-                    <a href={data.company.links.website} target="_blank" rel="noreferrer">
+                    <a
+                      href={data.company.links.website}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <span className="main-font heading-info">SpaceX</span>
                     </a>
                   </b>
@@ -156,4 +165,4 @@ const Launches = () => {
   );
 };
 
-export default Launches;
+export { AboutCompany };
