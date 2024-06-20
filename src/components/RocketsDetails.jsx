@@ -1,28 +1,32 @@
 import { useQuery } from "@apollo/client";
-import { GET_LAUNCHES } from "../queries/queries";
+import { GET_ROCKETS } from "../queries/queries";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
 import { Loader } from "./Loader";
-import { LaunchesCard } from "./LaunchesCard";
+import { RocketsCard } from "./RocketsCard";
 
-const Launches = () => {
-  const { loading, error, data } = useQuery(GET_LAUNCHES);
+const RocketsDetails = () => {
+  const { loading, error, data } = useQuery(GET_ROCKETS);
 
   if (error) return <p>`Error :( ${error.message}`</p>;
 
   if (loading) {
-    return <Loader />;
+    return (
+      <div>
+        <h1>List of Rockets</h1>
+        <Loader />
+      </div>
+    );
   }
-
   return (
     <div style={{ paddingTop: "1em" }}>
       <Grid container spacing={1}>
         <Grid item xs>
           <Typography component="h1" variant="h5" align="left">
-            <span className="main-font"> Past Launches</span>
+            <span className="main-font"> List of Rockets</span>
           </Typography>
         </Grid>
         <Grid item xs>
@@ -35,9 +39,9 @@ const Launches = () => {
           </Typography>
         </Grid>
       </Grid>
-      {!loading && <LaunchesCard data={data.launchesPast} />}
+      <RocketsCard data={data} loading={loading} />
     </div>
   );
 };
 
-export { Launches };
+export { RocketsDetails };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGlobalContext } from "./Context";
+import { useGlobalContext } from "./Context.js";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";

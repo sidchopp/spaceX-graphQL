@@ -1,7 +1,8 @@
 import { useGlobalContext } from "./components/Context";
 import { ApolloProvider } from "@apollo/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar, AboutCompany, Launches, Rockets, Footer } from "./components";
+import { Home, Rockets, Launches } from "./pages";
+import { Navbar, Footer } from "./components";
 
 function App() {
   const { client } = useGlobalContext();
@@ -10,7 +11,7 @@ function App() {
       <ApolloProvider client={client}>
         <Navbar />
         <Routes>
-          <Route path="/" element={<AboutCompany />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/rockets" element={<Rockets />}></Route>
           <Route path="/launches" element={<Launches />}></Route>
         </Routes>
