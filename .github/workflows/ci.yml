@@ -1,0 +1,32 @@
+name: "CI"
+
+on:
+  pull_request:
+    types: ["opened", "reopened", "synchronize"]
+  push:
+    branches: ["main"]
+
+jobs:
+  sid-chopra-ci:
+    name: SpaceX Steps
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
