@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Components
 import Launches from "./components/Launches";
 import Rockets from "./components/Rockets";
-import AboutCompany from "./components/AboutCompany";
+import { AboutCompany } from "./components/AboutCompany";
 
 function App() {
   const { client } = useGlobalContext();
