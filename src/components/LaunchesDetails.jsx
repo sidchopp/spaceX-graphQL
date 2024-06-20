@@ -1,14 +1,12 @@
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_LAUNCHES } from "../queries/queries";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+import { Loader, LaunchesCard } from "../components";
 
-import Loader from "./Loader";
-import LaunchesCard from "./LaunchesCard";
+//MUI
+import { Grid, Button, Typography } from "@mui/material";
 
-const Launches = () => {
+const LaunchesDetails = () => {
   const { loading, error, data } = useQuery(GET_LAUNCHES);
 
   if (error) return <p>`Error :( ${error.message}`</p>;
@@ -16,9 +14,9 @@ const Launches = () => {
   if (loading) {
     return <Loader />;
   }
-  
+
   return (
-    <div>
+    <div style={{ paddingTop: "1em" }}>
       <Grid container spacing={1}>
         <Grid item xs>
           <Typography component="h1" variant="h5" align="left">
@@ -35,9 +33,9 @@ const Launches = () => {
           </Typography>
         </Grid>
       </Grid>
-     {!loading &&  <LaunchesCard data={data.launchesPast } />}
+      {!loading && <LaunchesCard data={data.launchesPast} />}
     </div>
   );
 };
 
-export default Launches;
+export { LaunchesDetails };

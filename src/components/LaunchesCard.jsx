@@ -1,31 +1,36 @@
 import { useState, useEffect } from "react";
-import { useGlobalContext } from "./Context";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { useGlobalContext } from "../context";
+import { paginate, scrollToTop } from "../utils";
+
+//MUI
+import {
+  Card,
+  CardHeader,
+  CardActions,
+  CardContent,
+  Grid,
+  Container,
+  Typography,
+  IconButton,
+  Button,
+} from "@mui/material";
+
+// React-Icons
+import { MdOutlineArticle } from "react-icons/md";
+import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs";
 import { SiSpacex } from "react-icons/si";
 import { FaWikipediaW } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import IconButton from "@mui/material/IconButton";
-import { Button } from "@mui/material";
-import { MdOutlineArticle } from "react-icons/md";
-import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs";
-
-import {paginate, scrollToTop} from "../utils.js";
 
 const LaunchesCard = ({ data }) => {
   const { showMore, setShowMore } = useGlobalContext();
   const launchData = paginate({ launchesPast: data });
   const [page, setPage] = useState(0);
   const [launches, setLaunches] = useState([]);
-   
+
   useEffect(() => {
-   setLaunches(launchData[page]);
-  }, [ page]);
+    setLaunches(launchData[page]);
+  }, [launchData, page]);
 
   const handlePage = (index) => {
     setPage(index);
@@ -55,7 +60,14 @@ const LaunchesCard = ({ data }) => {
       <Container sx={{ py: 8 }} maxWidth="xl">
         <Grid container spacing={4}>
           {launches.map((launch) => (
-            <Grid item key={launch.id} xs={12} sm={6} md={3} style={{ display: 'flex' }}>
+            <Grid
+              item
+              key={launch.id}
+              xs={12}
+              sm={6}
+              md={3}
+              style={{ display: "flex" }}
+            >
               <div className="card">
                 <Card
                   variant="outlined"
@@ -90,11 +102,13 @@ const LaunchesCard = ({ data }) => {
                               - Launched in: {launch.launch_year}
                             </Grid>
                           </Grid>
-                          {launch.launch_site && <Grid container rowSpacing={1}>
-                            <Grid item xs>
-                              - Launch site: {launch.launch_site.site_name}
+                          {launch.launch_site && (
+                            <Grid container rowSpacing={1}>
+                              <Grid item xs>
+                                - Launch site: {launch.launch_site.site_name}
+                              </Grid>
                             </Grid>
-                          </Grid>}
+                          )}
                         </i>
                       </span>
                     </Typography>
@@ -132,7 +146,7 @@ const LaunchesCard = ({ data }) => {
                       >
                         <FaWikipediaW />
                       </IconButton>
-                    ) }
+                    )}
                     {launch.links.video_link && (
                       <IconButton
                         size="large"
@@ -143,7 +157,7 @@ const LaunchesCard = ({ data }) => {
                       >
                         <IoLogoYoutube />
                       </IconButton>
-                    ) }
+                    )}
                     {launch.links.article_link && (
                       <IconButton
                         size="large"
@@ -154,7 +168,7 @@ const LaunchesCard = ({ data }) => {
                       >
                         <MdOutlineArticle />
                       </IconButton>
-                    ) }
+                    )}
                   </CardActions>
                 </Card>
               </div>
@@ -163,50 +177,50 @@ const LaunchesCard = ({ data }) => {
         </Grid>
 
         <div className="btn-container">
-        <IconButton
-          size="medium"
-          variant="contained"
-          color="primary"
-          onClick={() => { 
-            prevPage(); 
-            scrollToTop();
-          }}
-          className="prev-btn"
-        >
-          <BsArrowLeftSquareFill />
-        </IconButton>
-        {launchData.map((item, index) => {
-          return (
-            <button
-              key={index}
-              className={` page-btn font ${
-                index === page ? "active-btn" : null
-              }`}
-              onClick={() => {
-                handlePage(index); 
-                scrollToTop();
-              }}
-            >
-              {index + 1}
-            </button>
-          );
-        })}
-       <IconButton
-          size="medium"
-          variant="contained"
-          color="primary"
-          onClick={() => { 
-            nextPage(); 
-            scrollToTop();
-          }}
-          className="next-btn"
-        >
-          <BsArrowRightSquareFill />
-        </IconButton> 
-      </div>
+          <IconButton
+            size="medium"
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              prevPage();
+              scrollToTop();
+            }}
+            className="prev-btn"
+          >
+            <BsArrowLeftSquareFill />
+          </IconButton>
+          {launchData.map((item, index) => {
+            return (
+              <button
+                key={index}
+                className={` page-btn font ${
+                  index === page ? "active-btn" : null
+                }`}
+                onClick={() => {
+                  handlePage(index);
+                  scrollToTop();
+                }}
+              >
+                {index + 1}
+              </button>
+            );
+          })}
+          <IconButton
+            size="medium"
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              nextPage();
+              scrollToTop();
+            }}
+            className="next-btn"
+          >
+            <BsArrowRightSquareFill />
+          </IconButton>
+        </div>
       </Container>
     </div>
   );
 };
 
-export default LaunchesCard;
+export { LaunchesCard };

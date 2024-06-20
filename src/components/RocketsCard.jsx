@@ -1,15 +1,21 @@
-import { useGlobalContext } from "./Context";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { useGlobalContext } from "../context";
+
+//MUI
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Grid,
+  Container,
+  Typography,
+  Button,
+  IconButton,
+} from "@mui/material";
+
+// React-Icons
 import { SiSpacex } from "react-icons/si";
 import { FaWikipediaW } from "react-icons/fa";
-import IconButton from "@mui/material/IconButton";
-import { Button } from "@mui/material";
 
 const RocketsCard = ({ data }) => {
   const { showMore, setShowMore } = useGlobalContext();
@@ -19,7 +25,14 @@ const RocketsCard = ({ data }) => {
       <Container sx={{ py: 8 }} maxWidth="xl">
         <Grid container spacing={4}>
           {data.rockets.map((rocket) => (
-            <Grid item key={rocket.id} xs={12} sm={6} md={3} style={{ display: 'flex' }}>
+            <Grid
+              item
+              key={rocket.id}
+              xs={12}
+              sm={6}
+              md={3}
+              style={{ display: "flex" }}
+            >
               <div className="card">
                 <Card
                   variant="outlined"
@@ -117,4 +130,4 @@ const RocketsCard = ({ data }) => {
   );
 };
 
-export default RocketsCard;
+export { RocketsCard };
