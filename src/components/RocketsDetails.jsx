@@ -1,12 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { GET_ROCKETS } from "../queries/queries";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-
 import { Loader } from "./Loader";
 import { RocketsCard } from "./RocketsCard";
+
+//MUI
+import { Grid, Button, Typography } from "@mui/material";
 
 const RocketsDetails = () => {
   const { loading, error, data } = useQuery(GET_ROCKETS);

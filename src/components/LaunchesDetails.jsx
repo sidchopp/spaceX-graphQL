@@ -1,12 +1,10 @@
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_LAUNCHES } from "../queries/queries";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+import { Loader, LaunchesCard } from "../components";
 
-import { Loader } from "./Loader";
-import { LaunchesCard } from "./LaunchesCard";
+//MUI
+import { Grid, Button, Typography } from "@mui/material";
 
 const LaunchesDetails = () => {
   const { loading, error, data } = useQuery(GET_LAUNCHES);

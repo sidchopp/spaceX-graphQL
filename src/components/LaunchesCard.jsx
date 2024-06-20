@@ -1,21 +1,26 @@
 import { useState, useEffect } from "react";
-import { useGlobalContext } from "./Context.js";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { useGlobalContext } from "../context";
+import { paginate, scrollToTop } from "../utils";
+
+//MUI
+import {
+  Card,
+  CardHeader,
+  CardActions,
+  CardContent,
+  Grid,
+  Container,
+  Typography,
+  IconButton,
+  Button,
+} from "@mui/material";
+
+// React-Icons
+import { MdOutlineArticle } from "react-icons/md";
+import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs";
 import { SiSpacex } from "react-icons/si";
 import { FaWikipediaW } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import IconButton from "@mui/material/IconButton";
-import { Button } from "@mui/material";
-import { MdOutlineArticle } from "react-icons/md";
-import { BsArrowRightSquareFill, BsArrowLeftSquareFill } from "react-icons/bs";
-
-import { paginate, scrollToTop } from "../utils.js";
 
 const LaunchesCard = ({ data }) => {
   const { showMore, setShowMore } = useGlobalContext();

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {

@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
+//MUI
+import { Box, LinearProgress } from "@mui/material";
 
 const Loader = () => {
   return (

@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
-import { GET_COMPANY } from "../queries/queries";
-import { SiSpacex } from "react-icons/si";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { GET_COMPANY } from "../queries";
+import { Loader } from "../components";
 
-import { Loader } from "./Loader";
+//MUI
+import { Grid, Box, Typography, Container } from "@mui/material";
+
+//React-Icons
+import { SiSpacex } from "react-icons/si";
 
 const AboutCompany = () => {
   const { loading, error, data } = useQuery(GET_COMPANY);

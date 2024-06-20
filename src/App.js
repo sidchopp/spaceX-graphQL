@@ -1,4 +1,4 @@
-import { useGlobalContext } from "./components/Context";
+import { useGlobalContext } from "./context";
 import { ApolloProvider } from "@apollo/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, Rockets, Launches } from "./pages";
