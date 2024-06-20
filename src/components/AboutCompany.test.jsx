@@ -6,7 +6,7 @@ import { GET_COMPANY } from "../queries/queries";
 
 const mocks = [
   {
-    delay: 30, // to prevent React from batching the loading state away
+    delay: 100, // to prevent React from batching the loading state away
     request: {
       query: GET_COMPANY,
     },
