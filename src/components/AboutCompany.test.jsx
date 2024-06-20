@@ -6,6 +6,7 @@ import { GET_COMPANY } from "../queries/queries";
 
 const mocks = [
   {
+    delay: 30, // to prevent React from batching the loading state away
     request: {
       query: GET_COMPANY,
     },
@@ -41,7 +42,7 @@ describe("About Company Component", () => {
       </MockedProvider>
     );
 
-    expect(screen.getByRole("progressbar")).toBeInTheDocument();
+    expect(await screen.findByRole("progressbar")).toBeInTheDocument();
 
     await waitFor(() =>
       expect(screen.queryByRole("progressbar")).not.toBeInTheDocument()
