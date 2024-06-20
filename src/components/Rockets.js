@@ -5,8 +5,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
-import Loader from "./Loader";
-import RocketsCard from "./RocketsCard";
+import { Loader } from "./Loader";
+import { RocketsCard } from "./RocketsCard";
 
 const Rockets = () => {
   const { loading, error, data } = useQuery(GET_ROCKETS);
@@ -22,7 +22,7 @@ const Rockets = () => {
     );
   }
   return (
-    <div>
+    <div style={{ paddingTop: "1em" }}>
       <Grid container spacing={1}>
         <Grid item xs>
           <Typography component="h1" variant="h5" align="left">
@@ -44,4 +44,4 @@ const Rockets = () => {
   );
 };
 
-export default Rockets;
+export { Rockets };

@@ -6,9 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-import Loader from "./Loader";
-import Navbar from "./Navbar";
-import { Footer } from "./Footer";
+import { Loader } from "./Loader";
 
 const AboutCompany = () => {
   const { loading, error, data } = useQuery(GET_COMPANY);
@@ -31,7 +29,6 @@ const AboutCompany = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Navbar />
           <Typography
             component="h1"
             variant="h2"
@@ -159,7 +156,6 @@ const AboutCompany = () => {
             </Grid>
           </Container>
         </Container>
-        <Footer />
       </Box>
     </main>
   );

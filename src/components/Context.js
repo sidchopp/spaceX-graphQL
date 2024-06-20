@@ -3,14 +3,13 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-
   const [loading, setLoading] = useState(true);
   const [launches, setLaunches] = useState({});
   const [showMore, setShowMore] = useState(false);
-  
+
   const client = new ApolloClient({
-    uri: "https://spacex-production.up.railway.app/", 
-    cache: new InMemoryCache(), 
+    uri: "https://spacex-production.up.railway.app/",
+    cache: new InMemoryCache(),
   });
 
   return (

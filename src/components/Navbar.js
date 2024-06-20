@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar component="span" position="static">
@@ -33,4 +33,6 @@ export default function Navbar() {
       </AppBar>
     </Box>
   );
-}
+};
+
+export { Navbar };

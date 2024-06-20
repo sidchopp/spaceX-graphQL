@@ -5,8 +5,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
-import Loader from "./Loader";
-import LaunchesCard from "./LaunchesCard";
+import { Loader } from "./Loader";
+import { LaunchesCard } from "./LaunchesCard";
 
 const Launches = () => {
   const { loading, error, data } = useQuery(GET_LAUNCHES);
@@ -16,9 +16,9 @@ const Launches = () => {
   if (loading) {
     return <Loader />;
   }
-  
+
   return (
-    <div>
+    <div style={{ paddingTop: "1em" }}>
       <Grid container spacing={1}>
         <Grid item xs>
           <Typography component="h1" variant="h5" align="left">
@@ -35,9 +35,9 @@ const Launches = () => {
           </Typography>
         </Grid>
       </Grid>
-     {!loading &&  <LaunchesCard data={data.launchesPast } />}
+      {!loading && <LaunchesCard data={data.launchesPast} />}
     </div>
   );
 };
 
-export default Launches;
+export { Launches };
